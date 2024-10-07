@@ -27,7 +27,7 @@
   initializeApp();
 
   // Create custom token
-  const userId = "some-user-id"; // Replace with actual user ID
+  const userId = "some-user-id-firebase/auth/web-extension"; // Replace with actual user ID
   const customToken = await admin.auth().createCustomToken(userId);
   console.log(customToken);
 })();

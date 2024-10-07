@@ -63,6 +63,8 @@ export default {
   plugins: [
     {
       transform: function transform(code, id) {
+        // Handle the special case for firebase/auth/web-extension
+        code = code.replace(/firebase\/auth\/web-extension/g, `${REMOTE_FIREBASE_URL}/firebase-auth-web-extension.js`);
         // find references that are being imported locally (i.e. `require("./firebase/foo")`,
         // or as an installed module (`import {foo} from firebase/bar` ) and rewrite them to
         // be full remote URLs

@@ -12,7 +12,7 @@
 // // See the License for the specific language governing permissions and
 // // limitations under the License.
 
-import { initializeAuth, signInWithCustomToken } from "@firebase/auth";
+import { initializeAuth, signInWithCustomToken, onAuthStateChanged } from "firebase/auth/web-extension";
 import { initializeApp } from "firebase/app";
 import firebaseConfig from './firebaseConfig.js'
 
@@ -36,3 +36,9 @@ signInWithCustomToken(auth, token)
 .catch(error => {
   console.error('Error signing in:', error);
 })
+
+onAuthStateChanged(auth, (user) => {
+    console.log("here firebase/auth/web-extension0");
+    console.log(user);
+});
+
